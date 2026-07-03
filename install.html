@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Chrome 扩展开发者模式安装指南">
+  <title>安装指南 · Chrome 扩展集</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/icons/vault-pass.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a class="logo" href="./">
+          <span class="logo-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="4"/>
+            </svg>
+          </span>
+          <span>Chrome 扩展集</span>
+        </a>
+        <nav class="header-nav">
+          <a href="./">首页</a>
+          <a href="https://github.com/h-gj" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="container container-narrow">
+      <h1>安装指南</h1>
+      <p class="page-lead">这些扩展尚未上架 Chrome 网上应用店，需通过<strong>开发者模式</strong>手动加载。整个过程约 1 分钟，完全安全（代码均在 GitHub 开源）。</p>
+
+      <article class="guide-block">
+        <h2>1. 下载扩展</h2>
+        <p>在<a href="./">首页</a>点击对应扩展的「下载」按钮，获得 zip 压缩包。解压后应能看到 <code>manifest.json</code> 文件。</p>
+        <div class="callout callout-info">
+          <strong>提示：</strong>GitHub 下载的 zip 解压后文件夹名可能带 <code>-main</code> 后缀，加载时选择该文件夹即可。
+        </div>
+      </article>
+
+      <article class="guide-block">
+        <h2>2. 打开扩展管理页</h2>
+        <p>在 Chrome 地址栏输入并访问：</p>
+        <pre class="code-block">chrome://extensions/</pre>
+        <p>Edge 浏览器请访问 <code>edge://extensions/</code>。</p>
+      </article>
+
+      <article class="guide-block">
+        <h2>3. 开启开发者模式</h2>
+        <p>在扩展管理页<strong>右上角</strong>，打开「开发者模式」开关。</p>
+      </article>
+
+      <article class="guide-block">
+        <h2>4. 加载扩展</h2>
+        <p>点击左上角「<strong>加载已解压的扩展程序</strong>」，在文件选择器中找到刚才解压的文件夹并确认。</p>
+        <p>加载成功后，扩展会出现在列表中，工具栏也会出现对应图标。</p>
+      </article>
+
+      <article class="guide-block">
+        <h2>5. 更新扩展</h2>
+        <p>当扩展有新版本时，重新下载 zip 解压覆盖原文件夹（或解压到新目录后移除旧版），然后在扩展管理页点击该扩展卡片上的<strong>刷新</strong>按钮。</p>
+      </article>
+
+      <article class="guide-block">
+        <h2>常见问题</h2>
+        <dl class="faq-list">
+          <dt>提示「无法加载扩展」？</dt>
+          <dd>确认选择的是包含 <code>manifest.json</code> 的根目录，而不是 zip 文件本身或子文件夹。</dd>
+
+          <dt>VaultPass 没有图标？</dt>
+          <dd>该扩展需先运行 <code>python scripts/generate_icons.py</code> 生成图标，详见其 GitHub README。</dd>
+
+          <dt>扩展会被自动更新吗？</dt>
+          <dd>开发者模式加载的扩展不会自动更新，需手动下载新版本并刷新。</dd>
+
+          <dt>安全吗？</dt>
+          <dd>所有扩展源码公开在 GitHub，可自行审查。数据均存储在本地，无云端账户。</dd>
+        </dl>
+      </article>
+
+      <p class="back-link"><a href="./">← 返回扩展列表</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> <a href="https://github.com/h-gj" target="_blank" rel="noopener">h-gj</a></p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <rect width="128" height="128" rx="28" fill="#0ea5e9"/>
+  <rect x="24" y="32" width="80" height="64" rx="8" fill="#0c4a6e"/>
+  <text x="32" y="58" font-family="monospace" font-size="14" fill="#7dd3fc">curl</text>
+  <path d="M36 78h40M36 78l8-8M76 78l-8-8" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="32" y="88" font-family="monospace" font-size="11" fill="#bae6fd">127.0.0.1</text>
+</svg>

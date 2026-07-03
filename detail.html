@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>扩展详情 · Chrome 扩展集</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/icons/vault-pass.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a class="logo" href="./">
+          <span class="logo-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="4"/>
+            </svg>
+          </span>
+          <span id="site-title">Chrome 扩展集</span>
+        </a>
+        <nav class="header-nav">
+          <a href="./">全部扩展</a>
+          <a href="install.html">安装指南</a>
+          <a id="github-link" href="https://github.com/h-gj" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-main" id="detail-main" aria-live="polite">
+    <div class="container container-narrow">
+      <p class="back-link back-link-top"><a href="./">← 返回扩展列表</a></p>
+      <div id="detail-content">
+        <p class="loading-text">加载中…</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> <a id="footer-github" href="https://github.com/h-gj" target="_blank" rel="noopener">h-gj</a></p>
+    </div>
+  </footer>
+
+  <script src="js/shared.js"></script>
+  <script src="js/detail.js"></script>
+</body>
+</html>

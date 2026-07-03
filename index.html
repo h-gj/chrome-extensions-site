@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="h-gj 个人开发的 Chrome 浏览器扩展，免费开源下载">
+  <title>Chrome 扩展集 · h-gj</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/icons/vault-pass.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a class="logo" href="./">
+          <span class="logo-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="4"/>
+            </svg>
+          </span>
+          <span id="site-title">Chrome 扩展集</span>
+        </a>
+        <nav class="header-nav">
+          <a href="install.html">安装指南</a>
+          <a id="github-link" href="https://github.com/h-gj" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="hero-badge">开源 · 免费 · 纯静态</p>
+        <h1 id="hero-title">Chrome 扩展集</h1>
+        <p class="hero-subtitle" id="hero-subtitle">个人开发的浏览器扩展，免费开源，开发者模式即可安装</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#extensions">浏览扩展</a>
+          <a class="btn btn-secondary" href="install.html">如何安装？</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="extensions-section" id="extensions">
+      <div class="container">
+        <div class="section-head">
+          <h2>全部扩展</h2>
+          <p id="extension-count">加载中…</p>
+        </div>
+        <div class="extensions-grid" id="extensions-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="install-preview">
+      <div class="container">
+        <div class="install-card">
+          <h2>快速安装</h2>
+          <ol class="install-steps">
+            <li>下载扩展 zip 并解压到本地文件夹</li>
+            <li>打开 <code>chrome://extensions/</code></li>
+            <li>开启右上角「开发者模式」</li>
+            <li>点击「加载已解压的扩展程序」，选择解压后的目录</li>
+          </ol>
+          <a class="btn btn-secondary" href="install.html">查看详细图文指南 →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> <a id="footer-github" href="https://github.com/h-gj" target="_blank" rel="noopener">h-gj</a> · 纯静态站点，托管于 GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script src="js/shared.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+{
+  "site": {
+    "title": "Chrome 扩展集",
+    "subtitle": "个人开发的浏览器扩展，免费开源，开发者模式即可安装",
+    "author": "h-gj",
+    "github": "https://github.com/h-gj"
+  },
+  "extensions": [
+    {
+      "id": "vault-pass",
+      "name": "VaultPass",
+      "version": "1.1.1",
+      "description": "安全的本地密码管理器 — AES-256 加密存储、自动填充、密码生成器",
+      "icon": "assets/icons/vault-pass.svg",
+      "tags": ["密码管理", "安全", "自动填充"],
+      "github": "https://github.com/h-gj/vault-pass",
+      "download": "https://github.com/h-gj/vault-pass/archive/refs/heads/main.zip",
+      "installNote": "解压后在 chrome://extensions/ 开启开发者模式，加载已解压的扩展程序。首次使用前运行 python scripts/generate_icons.py 生成图标。",
+      "detail": {
+        "overview": "VaultPass 是一款类似 LastPass 的本地密码管理 Chrome 扩展。所有凭据经 AES-256-GCM 加密后存储在浏览器本地，无云端同步、无账户系统，适合个人学习与小规模使用。",
+        "features": [
+          "主密码保护 — AES-256-GCM 加密，PBKDF2（600,000 次迭代）派生密钥",
+          "密码保险库 — 添加、编辑、删除、搜索登录条目",
+          "自动填充 — 在登录页面检测密码框，点击锁图标一键填充",
+          "保存提示 — 提交登录表单时提示保存新凭据",
+          "密码生成器 — 可自定义长度和字符集",
+          "右键菜单 — 在输入框右键快速生成并复制密码",
+          "导出备份 — 解锁后可导出 JSON 备份"
+        ],
+        "usage": [
+          "首次使用：点击扩展图标，设置主密码（至少 8 位）",
+          "解锁：每次打开浏览器后输入主密码（15 分钟无操作自动锁定）",
+          "添加密码：在 popup 中点击 + 手动添加，或在网站登录后点击保存横幅",
+          "自动填充：访问已保存的网站，在密码框旁点击紫色锁图标即可填充",
+          "设置页：右键扩展图标 → 选项，可使用密码生成器和导出功能"
+        ],
+        "techStack": ["Chrome Extension Manifest V3", "Web Crypto API (PBKDF2 + AES-GCM)", "原生 HTML / CSS / JavaScript"],
+        "requirements": ["Chrome / Edge 等 Chromium 浏览器", "首次安装需运行 generate_icons.py 生成图标"]
+      }
+    },
+    {
+      "id": "curl-localhost",
+      "name": "cURL → 本地调试",
+      "version": "1.0.0",
+      "description": "复制 DevTools 的 cURL 后一键转换为 127.0.0.1 并发送到本地服务，保留 Host 头方便 nginx 调试",
+      "icon": "assets/icons/curl-localhost.svg",
+      "tags": ["开发工具", "API 调试", "cURL"],
+      "github": "https://github.com/h-gj/curl-localhost",
+      "download": "https://github.com/h-gj/curl-localhost/archive/refs/heads/main.zip",
+      "installNote": "解压后直接加载扩展目录，无需构建步骤。",
+      "detail": {
+        "overview": "面向后端开发者的调试利器：从 Chrome DevTools 复制 cURL 后，自动将远程 API 地址替换为本地 127.0.0.1:8000，同时保留原 Host 请求头，完美适配本地 nginx 反向代理场景。",
+        "features": [
+          "解析 Chrome DevTools「Copy as cURL (bash)」格式",
+          "将测试域名（如 v8api.k0v.cn）映射到 http://127.0.0.1:8000",
+          "保留原 Host 头，适配本地反向代理路由",
+          "三种触发方式：扩展弹窗、快捷键 Ctrl+Shift+U、右键选中文本",
+          "展示转换后的本地 cURL 与响应结果（状态码、headers、body）",
+          "可配置本地 Host、端口、域名映射列表"
+        ],
+        "usage": [
+          "在测试环境打开 DevTools → Network",
+          "右键目标请求 → Copy → Copy as cURL (bash)",
+          "点击扩展图标（自动读取剪贴板并转换），或按 Ctrl+Shift+U 直接发送",
+          "也可选中 cURL 文本 → 右键 → 发送到本地调试",
+          "在弹窗中查看本地 cURL 预览和响应结果"
+        ],
+        "shortcuts": [
+          { "keys": "Ctrl + Shift + U", "desc": "读取剪贴板 cURL 并发送到本地" }
+        ],
+        "techStack": ["Chrome Extension Manifest V3", "纯 JavaScript，无构建步骤"],
+        "requirements": ["本地服务需已启动并监听配置端口（默认 8000）", "首次使用快捷键时允许剪贴板权限"]
+      }
+    },
+    {
+      "id": "moyu-plugin",
+      "name": "工作助手",
+      "version": "1.3.2",
+      "description": "侧边栏效率面板：天气、日历、待办、记事、剪贴板历史、百度热榜，支持一键 Excel 伪装模式",
+      "icon": "assets/icons/moyu-plugin.svg",
+      "tags": ["效率", "侧边栏", "天气"],
+      "github": "https://github.com/h-gj/moyu-plugin",
+      "download": "https://github.com/h-gj/moyu-plugin/archive/refs/heads/main.zip",
+      "installNote": "解压后加载扩展，点击工具栏图标打开侧边栏。快捷键 Ctrl+Shift+Y。",
+      "detail": {
+        "overview": "伪装成「工作助手」的 Chrome 侧边栏扩展，集成天气、日历、待办、记事本、剪贴板历史和百度热榜，还有一键切换 Excel 销售表格的伪装模式。",
+        "features": [
+          "天气 — 城市搜索 + GPS 定位，7 日预报；支持 Open-Meteo / 和风天气切换",
+          "日历 — 月视图、节假日标注、日期详情",
+          "待办 — 添加/完成/删除待办，自动保存",
+          "记事 — 随手记事，修改后自动保存",
+          "剪贴板 — 记录网页中最近复制的 20 条文字",
+          "热榜 — 百度实时热搜，点击跳转",
+          "伪装模式 — 一键切换为 Excel 销售数据表格"
+        ],
+        "usage": [
+          "加载扩展后，点击工具栏「工作助手」图标打开侧边栏",
+          "使用顶部标签切换天气、日历、待办等功能模块",
+          "复制网页文字后，在剪贴板标签查看历史记录",
+          "需要伪装时按 Ctrl+Shift+M 切换 Excel 界面"
+        ],
+        "shortcuts": [
+          { "keys": "Ctrl + Shift + Y", "desc": "打开/关闭侧边栏" },
+          { "keys": "Ctrl + Shift + M", "desc": "伪装模式（侧边栏聚焦时）" },
+          { "keys": "Esc", "desc": "退出伪装" },
+          { "keys": "1 ~ 6", "desc": "切换六个标签页" }
+        ],
+        "techStack": ["Chrome Extension Manifest V3", "Side Panel API", "原生 JavaScript"],
+        "requirements": ["Chrome 114+（需 Side Panel 支持）"]
+      }
+    },
+    {
+      "id": "screen-recorder",
+      "name": "屏幕录制器",
+      "version": "1.1.0",
+      "description": "录制屏幕、窗口或标签页，导出为 WebM 视频或 GIF 动图，支持自定义帧率与宽度",
+      "icon": "assets/icons/screen-recorder.svg",
+      "tags": ["录屏", "GIF", "WebM"],
+      "github": "https://github.com/h-gj/screen-recorder-extension",
+      "download": "https://github.com/h-gj/screen-recorder-extension/archive/refs/heads/main.zip",
+      "installNote": "解压后直接加载。需要 Chrome 109+，支持 Chromium 系浏览器。",
+      "detail": {
+        "overview": "轻量屏幕录制 Chrome 扩展，可选择录制整个屏幕、窗口或浏览器标签页，支持导出 WebM 视频或 GIF 动图，停止后自动弹出下载对话框。",
+        "features": [
+          "选择录制目标：整个屏幕、窗口或标签页",
+          "可选是否包含音频",
+          "WebM 视频 — 画质好、文件小，推荐日常使用",
+          "GIF 动图 — 适合短片段分享（先录视频再逐帧转换）",
+          "GIF 模式可调整帧率与最大宽度",
+          "停止后自动弹出「另存为」下载对话框"
+        ],
+        "usage": [
+          "点击浏览器工具栏中的扩展图标",
+          "选择导出格式（WebM 或 GIF）",
+          "若选 GIF，可调整帧率与最大宽度",
+          "点击「开始录制」，在系统弹窗中选择要录制的屏幕/窗口/标签页",
+          "录制完成后点击「停止并保存」，选择保存位置"
+        ],
+        "techStack": ["Chrome Extension Manifest V3", "Offscreen Document", "MediaRecorder API", "内置 GIF 编码器"],
+        "requirements": ["Chrome 109+ 或 Edge 等 Chromium 浏览器", "GIF 模式建议控制在 30 秒以内"]
+      }
+    }
+  ]
+}
