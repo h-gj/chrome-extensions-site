@@ -139,6 +139,208 @@
         "techStack": ["Chrome Extension Manifest V3", "Offscreen Document", "MediaRecorder API", "内置 GIF 编码器"],
         "requirements": ["Chrome 109+ 或 Edge 等 Chromium 浏览器", "GIF 模式建议控制在 30 秒以内"]
       }
+    },
+    {
+      "id": "local-nav",
+      "name": "Hgj Nav",
+      "version": "1.5.0",
+      "description": "个人新标签页导航：本地服务、GitLab 与常用链接一键打开，数据只存在本机",
+      "icon": "assets/icons/local-nav.svg",
+      "tags": ["新标签页", "导航", "效率"],
+      "github": "https://github.com/h-gj/local-nav",
+      "download": "https://github.com/h-gj/local-nav/archive/refs/heads/main.zip",
+      "installNote": "解压后加载扩展目录。安装后新开标签页即可看到 Hgj Nav。",
+      "detail": {
+        "overview": "Hgj Nav 会替换浏览器新标签页，做成个人导航首页。适合把 localhost 端口、GitLab、文档站等常用入口集中在一页，点击卡片即可打开。链接存在 chrome.storage.local，不会同步到云端。",
+        "features": [
+          "新标签页网格导航，支持按名称或 URL 搜索",
+          "自定义分类，侧栏可增删分类",
+          "添加任意 URL；只写端口号会自动补成 localhost",
+          "域名不带协议时默认使用 https://",
+          "卡片可编辑、删除；点击在当前标签页打开",
+          "数据仅保存在本机"
+        ],
+        "usage": [
+          "加载扩展后新开一个标签页",
+          "点击「添加链接」填写名称、地址和分类",
+          "需要整理时用右上角搜索，或在侧栏切换分类",
+          "点卡片右上角编辑图标可改链接或删除"
+        ],
+        "techStack": ["Chrome Extension Manifest V3", "New Tab Override", "chrome.storage.local"],
+        "requirements": ["Chromium 浏览器；会替换默认新标签页"]
+      }
+    },
+    {
+      "id": "tab-domain-manager",
+      "name": "Gather",
+      "version": "1.0.0",
+      "description": "新标签页按域名归组当前打开的标签，可逐个关闭或一键关掉整个域名",
+      "icon": "assets/icons/tab-domain-manager.svg",
+      "tags": ["新标签页", "标签管理", "效率"],
+      "github": "https://github.com/h-gj/tab-domain-manager",
+      "download": "https://github.com/h-gj/tab-domain-manager/archive/refs/heads/main.zip",
+      "installNote": "解压后直接加载。安装后新开标签页即可使用 Gather。",
+      "detail": {
+        "overview": "Gather 用新标签页展示当前窗口里已打开的标签，按域名分组。适合一次开了很多同类站点时，快速跳转或按域名批量关闭。",
+        "features": [
+          "按域名自动分组，数量多的域名排在前面",
+          "搜索标题、域名或 URL",
+          "点击条目激活对应标签",
+          "关闭单个标签，或 Close all 关闭该域名下全部标签",
+          "实时跟随标签创建、关闭、移动更新"
+        ],
+        "usage": [
+          "加载扩展后打开新标签页",
+          "在搜索框过滤标签或域名",
+          "点击一行切换到该标签",
+          "点关闭按钮关掉单个标签，或点 Close all 关掉整个域名"
+        ],
+        "techStack": ["Chrome Extension Manifest V3", "New Tab Override", "chrome.tabs API"],
+        "requirements": ["Chromium 浏览器；会替换默认新标签页"]
+      }
+    },
+    {
+      "id": "account-switcher",
+      "name": "多系统账号切换登录",
+      "version": "2.0.3",
+      "description": "在 ICGoo、佳友等多系统的多个环境之间切换账号并自动登录",
+      "icon": "assets/icons/account-switcher.svg",
+      "tags": ["开发工具", "账号切换", "自动登录"],
+      "github": "https://github.com/h-gj/account-switcher",
+      "download": "https://github.com/h-gj/account-switcher/archive/refs/heads/main.zip",
+      "installNote": "解压后直接加载扩展目录。账号密码只存在本机 chrome.storage.local，请勿存放生产凭据。",
+      "detail": {
+        "overview": "面向多环境开发的账号切换扩展。可管理多套账号与目标站点，一键跳到登录中心自动填表，登录后按 OAuth redirect 回到原来的开发站点。",
+        "features": [
+          "管理多个账号（手机号 + 密码）",
+          "管理多个目标站点版本",
+          "一键打开登录中心并自动填写提交",
+          "登录完成后跳回当前或指定的目标站点",
+          "切换前可选择清除 Cookie，避免 Session 冲突"
+        ],
+        "usage": [
+          "打开目标开发站点，或任意页面",
+          "点击工具栏扩展图标",
+          "选择目标站点与账号，点击立即登录",
+          "扩展会打开登录页、填表并提交，完成后跳回目标页面",
+          "需要增删账号或站点时，在弹窗里进入管理页"
+        ],
+        "techStack": ["Chrome Extension Manifest V3", "cookies / scripting / tabs", "chrome.storage.local"],
+        "requirements": ["目标站点需已配置对应登录中心与 OAuth redirect 白名单", "仅建议用于开发测试账号"]
+      }
+    },
+    {
+      "id": "env-favicon",
+      "name": "环境图标识别",
+      "version": "1.0.1",
+      "description": "按域名区分本地 / 开发 / 线上，用颜色标记标签页图标与标题前缀",
+      "icon": "assets/icons/env-favicon.svg",
+      "tags": ["开发工具", "环境识别", "标签页"],
+      "github": "https://github.com/h-gj/env-favicon",
+      "download": "https://github.com/h-gj/env-favicon/archive/refs/heads/main.zip",
+      "installNote": "解压后直接加载。可在选项页开关自动规则，或为单个域名手动指定环境。",
+      "detail": {
+        "overview": "同时打开本地、开发、线上站点时，标签页图标往往一模一样。本扩展按域名识别环境，在 favicon、标题前缀和页面角标上用颜色区分：蓝·本、橙·开、红·线。",
+        "features": [
+          "自动规则：localhost / 127.0.0.1 视为本地",
+          "域名包含 y8e / k0v / demo 视为开发",
+          "域名以 www. 开头视为线上",
+          "手动配置优先于自动规则",
+          "弹窗可把当前域名一键标成本地 / 开发 / 线上"
+        ],
+        "usage": [
+          "打开匹配规则的页面，标签图标右下角会出现彩色圆标，标题带 [本] / [开] / [线]",
+          "点击扩展图标查看当前环境，或给当前域名指定环境",
+          "打开完整设置，管理自动规则与手动域名列表"
+        ],
+        "techStack": ["Chrome Extension Manifest V3", "content scripts", "chrome.storage"],
+        "requirements": ["需要对标签页注入内容脚本；可在选项页关闭不需要的自动规则"]
+      }
+    },
+    {
+      "id": "env-switcher",
+      "name": "环境切换",
+      "version": "1.2.1",
+      "description": "一键在本地 / 开发 / 线上之间跳转同一路由，支持多本地服务与同页分屏对比",
+      "icon": "assets/icons/env-switcher.svg",
+      "tags": ["开发工具", "环境切换", "分屏"],
+      "github": "https://github.com/h-gj/env-switcher",
+      "download": "https://github.com/h-gj/env-switcher/archive/refs/heads/main.zip",
+      "installNote": "解压后加载扩展，先在选项页配置站点分组（本地 / 开发 / 线上域名）。",
+      "detail": {
+        "overview": "同一业务在本地、开发、线上切换时，不必再复制路径、改域名、粘贴。页面右上角显示当前环境，可新开对应路由，或在同一标签页左右分屏对比。开发聚合域名还可按路径前缀或正则落到不同本地端口。",
+        "features": [
+          "按站点分组配置本地 / 开发 / 线上域名",
+          "本地支持默认域名 + 路径路由（最长前缀优先，否则按正则）",
+          "本地 → 开发/线上：落到聚合域名，保留 path / query / hash",
+          "开发/线上 → 本地：按当前 path 匹配本地服务",
+          "同页分屏对比，可选同步纵向滚动"
+        ],
+        "usage": [
+          "在选项页添加站点分组并填好各环境域名",
+          "打开任一已配置站点，页面右上角会出现环境角标",
+          "点击其他环境，在新标签打开对应路由",
+          "点击对比配对，或在弹窗里选择「同一标签页对比」"
+        ],
+        "techStack": ["Chrome Extension Manifest V3", "declarativeNetRequest", "content scripts"],
+        "requirements": ["需先配置站点分组才能跳转", "分屏对比在同一标签页内完成"]
+      }
+    },
+    {
+      "id": "linkify",
+      "name": "Linkify",
+      "version": "1.0.0",
+      "description": "自动把页面上不可点击的 URL 文本转成可点击链接",
+      "icon": "assets/icons/linkify.svg",
+      "tags": ["效率", "链接", "内容脚本"],
+      "github": "https://github.com/h-gj/linkify",
+      "download": "https://github.com/h-gj/linkify/archive/refs/heads/main.zip",
+      "installNote": "解压后直接加载。点击扩展图标可开关功能。",
+      "detail": {
+        "overview": "很多页面把 URL 写成普通文字，只能复制后再粘贴到地址栏。Linkify 会识别这些文本并变成链接，默认在新标签页打开，并监听 SPA / AJAX 后续插入的内容。",
+        "features": [
+          "识别 http://、https://、www. 开头的 URL 文本",
+          "转为可点击链接，默认新标签打开",
+          "监听动态内容，后续出现的 URL 也会处理",
+          "跳过已有链接、输入框、code / pre、脚本和样式区域",
+          "弹窗一键开关"
+        ],
+        "usage": [
+          "加载后打开任意网页，纯文本里的 URL 会变成蓝色链接",
+          "点击扩展图标可临时关闭或重新开启"
+        ],
+        "techStack": ["Chrome Extension Manifest V3", "content scripts", "MutationObserver"],
+        "requirements": ["需要对网页注入内容脚本"]
+      }
+    },
+    {
+      "id": "network-response-search",
+      "name": "网络响应关键字搜索",
+      "version": "1.0.0",
+      "description": "抓取当前标签页的网络请求，按响应内容关键字搜索匹配结果",
+      "icon": "assets/icons/network-response-search.svg",
+      "tags": ["开发工具", "网络", "侧边栏"],
+      "github": "https://github.com/h-gj/-network-response-search",
+      "download": "https://github.com/h-gj/-network-response-search/archive/refs/heads/main.zip",
+      "installNote": "解压后加载扩展，点击工具栏图标打开侧边栏。监控时 Chrome 会提示「正受到自动测试软件控制」，这是读取响应体所需的 debugger 权限。",
+      "detail": {
+        "overview": "在侧边栏监控当前标签页的网络请求，按响应正文搜索关键字。适合排查某个 userId、errorCode 到底出现在哪条接口里，而不必在 DevTools 里逐条点开。",
+        "features": [
+          "侧边栏开始 / 停止监控当前标签页",
+          "按响应内容关键字搜索，支持区分大小写与正则",
+          "展示方法、状态码、MIME、URL 与正文片段",
+          "预览完整响应，可复制 URL 或响应内容",
+          "每个标签最多缓存 500 条请求，单条正文上限约 512KB"
+        ],
+        "usage": [
+          "点击工具栏图标打开侧边栏",
+          "点击「开始监控」，必要时允许 debugger 附加",
+          "在页面上操作以产生请求",
+          "输入关键字搜索，点结果查看预览或复制"
+        ],
+        "techStack": ["Chrome Extension Manifest V3", "Side Panel API", "chrome.debugger"],
+        "requirements": ["Chrome 114+（需 Side Panel）", "监控期间会显示自动化测试提示条"]
+      }
     }
   ]
 }
