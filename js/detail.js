@@ -34,7 +34,7 @@ function renderNotFound(container, message) {
     <div class="detail-not-found">
       <h1>未找到扩展</h1>
       <p>${escapeHtml(message)}</p>
-      <a class="btn btn-secondary" href="./">返回首页</a>
+      <a class="btn btn-secondary" href="extensions.html">返回扩展列表</a>
     </div>
   `;
 }

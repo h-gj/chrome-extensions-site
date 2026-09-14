@@ -12,12 +12,14 @@ function applySiteMeta(site) {
   const titleEl = document.getElementById('site-title');
   const heroTitle = document.getElementById('hero-title');
   const heroSubtitle = document.getElementById('hero-subtitle');
+  const heroBadge = document.getElementById('hero-badge');
   const githubLink = document.getElementById('github-link');
   const footerGithub = document.getElementById('footer-github');
 
   if (titleEl) titleEl.textContent = site.title;
   if (heroTitle) heroTitle.textContent = site.title;
   if (heroSubtitle) heroSubtitle.textContent = site.subtitle;
+  if (heroBadge && site.badge) heroBadge.textContent = site.badge;
   if (githubLink && site.github) githubLink.href = site.github;
   if (footerGithub) {
     footerGithub.textContent = site.author;
@@ -27,6 +29,10 @@ function applySiteMeta(site) {
 
 function detailUrl(id) {
   return `detail.html?id=${encodeURIComponent(id)}`;
+}
+
+function skillUrl(id) {
+  return `skill.html?id=${encodeURIComponent(id)}`;
 }
 
 function renderTags(tags) {
@@ -52,14 +58,37 @@ function renderShortcuts(shortcuts) {
   return `<table class="shortcut-table"><tbody>${rows}</tbody></table>`;
 }
 
-async function fetchExtensionsData() {
-  const res = await fetch('data/extensions.json');
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+async function fetchJson(path) {
+  const res = await fetch(path);
+  if (!res.ok) throw new Error(`HTTP ${res.status} ${path}`);
   return res.json();
 }
 
-function getExtensionById(extensions, id) {
-  return extensions.find((ext) => ext.id === id);
+async function fetchExtensionsData() {
+  return fetchJson('data/extensions.json');
 }
 
-document.getElementById('year').textContent = new Date().getFullYear();
+async function fetchHubData() {
+  const [extData, sitesData, skillsData] = await Promise.all([
+    fetchJson('data/extensions.json'),
+    fetchJson('data/sites.json'),
+    fetchJson('data/skills.json'),
+  ]);
+  return {
+    site: extData.site,
+    extensions: extData.extensions || [],
+    sites: sitesData.sites || [],
+    skills: skillsData.skills || [],
+  };
+}
+
+function getById(items, id) {
+  return items.find((item) => item.id === id);
+}
+
+function getExtensionById(extensions, id) {
+  return getById(extensions, id);
+}
+
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();

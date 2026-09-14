@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Chrome 扩展开发者模式安装指南">
-  <title>安装指南 · Chrome 扩展集</title>
+  <meta name="description" content="hgjhub：Chrome 扩展开发者模式安装，以及 Cursor / Codex Agent Skills 安装">
+  <title>安装指南 · hgjhub</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="assets/icons/vault-pass.svg" type="image/svg+xml">
 </head>
@@ -19,10 +19,12 @@
               <circle cx="12" cy="12" r="4"/>
             </svg>
           </span>
-          <span>Chrome 扩展集</span>
+          <span>hgjhub</span>
         </a>
         <nav class="header-nav">
-          <a href="./">首页</a>
+          <a href="extensions.html">扩展</a>
+          <a href="sites.html">站点</a>
+          <a href="skills.html">Skills</a>
           <a href="https://github.com/h-gj" target="_blank" rel="noopener">GitHub</a>
         </nav>
       </div>
@@ -32,11 +34,19 @@
   <main class="page-main">
     <div class="container container-narrow">
       <h1>安装指南</h1>
-      <p class="page-lead">这些扩展尚未上架 Chrome 网上应用店，需通过<strong>开发者模式</strong>手动加载。整个过程约 1 分钟，完全安全（代码均在 GitHub 开源）。</p>
+      <p class="page-lead">扩展走 Chrome 开发者模式；Skills 复制到 Cursor 或 Codex 的 skills 目录。站点无需安装，打开链接即可。</p>
+
+      <p class="guide-toc">
+        <a href="#extensions">Chrome 扩展</a>
+        <a href="#skills">Agent Skills</a>
+      </p>
+
+      <h2 class="guide-anchor" id="extensions">Chrome 扩展</h2>
+      <p class="page-lead">这些扩展尚未上架 Chrome 网上应用店，需通过<strong>开发者模式</strong>手动加载。整个过程约 1 分钟，代码均在 GitHub 开源。</p>
 
       <article class="guide-block">
         <h2>1. 下载扩展</h2>
-        <p>在<a href="./">首页</a>点击对应扩展的「下载」按钮，获得 zip 压缩包。解压后应能看到 <code>manifest.json</code> 文件。</p>
+        <p>在<a href="extensions.html">扩展列表</a>点击「下载」，获得 zip。解压后应能看到 <code>manifest.json</code>。</p>
         <div class="callout callout-info">
           <strong>提示：</strong>GitHub 下载的 zip 解压后文件夹名可能带 <code>-main</code> 后缀，加载时选择该文件夹即可。
         </div>
@@ -56,33 +66,59 @@
 
       <article class="guide-block">
         <h2>4. 加载扩展</h2>
-        <p>点击左上角「<strong>加载已解压的扩展程序</strong>」，在文件选择器中找到刚才解压的文件夹并确认。</p>
-        <p>加载成功后，扩展会出现在列表中，工具栏也会出现对应图标。</p>
+        <p>点击左上角「<strong>加载已解压的扩展程序</strong>」，选择刚才解压的文件夹。</p>
       </article>
 
       <article class="guide-block">
         <h2>5. 更新扩展</h2>
-        <p>当扩展有新版本时，重新下载 zip 解压覆盖原文件夹（或解压到新目录后移除旧版），然后在扩展管理页点击该扩展卡片上的<strong>刷新</strong>按钮。</p>
+        <p>重新下载 zip 解压覆盖原文件夹，然后在扩展管理页点击该扩展卡片上的<strong>刷新</strong>。</p>
       </article>
 
       <article class="guide-block">
         <h2>常见问题</h2>
         <dl class="faq-list">
           <dt>提示「无法加载扩展」？</dt>
-          <dd>确认选择的是包含 <code>manifest.json</code> 的根目录，而不是 zip 文件本身或子文件夹。</dd>
-
+          <dd>确认选择的是包含 <code>manifest.json</code> 的根目录，而不是 zip 文件本身。</dd>
           <dt>VaultPass 没有图标？</dt>
-          <dd>该扩展需先运行 <code>python scripts/generate_icons.py</code> 生成图标，详见其 GitHub README。</dd>
-
+          <dd>需先运行 <code>python scripts/generate_icons.py</code>，详见其 GitHub README。</dd>
           <dt>扩展会被自动更新吗？</dt>
-          <dd>开发者模式加载的扩展不会自动更新，需手动下载新版本并刷新。</dd>
-
-          <dt>安全吗？</dt>
-          <dd>所有扩展源码公开在 GitHub，可自行审查。数据均存储在本地，无云端账户。</dd>
+          <dd>开发者模式加载的扩展不会自动更新。</dd>
         </dl>
       </article>
 
-      <p class="back-link"><a href="./">← 返回扩展列表</a></p>
+      <h2 class="guide-anchor" id="skills">Agent Skills</h2>
+      <p class="page-lead">Skill 是给 Cursor / Codex Agent 读的说明书（<code>SKILL.md</code>）加可选脚本。解压后放到约定目录，新开一场对话即可调用。</p>
+
+      <article class="guide-block">
+        <h2>1. 下载</h2>
+        <p>在<a href="skills.html">Skills 列表</a>点击「下载」，得到 zip 或单份 <code>SKILL.md</code>。</p>
+      </article>
+
+      <article class="guide-block">
+        <h2>2. 放到 skills 目录</h2>
+        <p>Cursor（Windows）：</p>
+        <pre class="code-block">%USERPROFILE%\.cursor\skills\&lt;skill-name&gt;\</pre>
+        <p>目录里至少要有 <code>SKILL.md</code>。Codex 技能则放到 <code>%USERPROFILE%\.codex\skills\&lt;skill-name&gt;\</code>。</p>
+      </article>
+
+      <article class="guide-block">
+        <h2>3. 新开对话</h2>
+        <p>已打开的对话不一定会立刻扫到新 skill。新开一个 Agent 对话，用 skill 描述里的触发语（例如「一条龙 json.cn」）。</p>
+      </article>
+
+      <article class="guide-block">
+        <h2>注意</h2>
+        <dl class="faq-list">
+          <dt>cloudflare-manager 没有密钥？</dt>
+          <dd>zip 故意不含 <code>.env</code>。在本地自建 <code>.env</code>，写入 <code>CLOUDFLARE_API_TOKEN</code> 与 <code>CLOUDFLARE_ZONE_ID</code>。</dd>
+          <dt>website-rebuild 只有 SKILL.md？</dt>
+          <dd>完整脚本包较大。说明文件可先读；完整 <code>scripts/</code> 需自行同步完整 skill 目录。</dd>
+          <dt>复刻站能当官方用吗？</dt>
+          <dd>不能。它们是学习件，页面上应视为非官方复刻。</dd>
+        </dl>
+      </article>
+
+      <p class="back-link"><a href="./">← 返回首页</a></p>
     </div>
   </main>
 
@@ -92,6 +128,6 @@
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="js/shared.js"></script>
 </body>
 </html>

@@ -1,0 +1,101 @@
+{
+  "sites": [
+    {
+      "id": "qrcard",
+      "name": "QRCard",
+      "description": "一个二维码就是你的个人主页 — 把联系方式、链接与简介收进一张可扫卡片",
+      "url": "https://card.hgjhub.com",
+      "github": "https://github.com/h-gj/qrcard",
+      "icon": "assets/icons/site-qrcard.svg",
+      "tags": ["原创", "二维码", "名片"],
+      "kind": "original"
+    },
+    {
+      "id": "hutu",
+      "name": "Hutu",
+      "description": "托管在 hutu.hgjhub.com 的静态站点",
+      "url": "https://hutu.hgjhub.com",
+      "github": "https://github.com/h-gj/hutu-static",
+      "icon": "assets/icons/site-hutu.svg",
+      "tags": ["静态站"],
+      "kind": "original"
+    },
+    {
+      "id": "jsoncn",
+      "name": "JSON 工具",
+      "description": "json.cn 首页 JSON 工具的学习性复刻，非官方、与原站无关",
+      "url": "https://h-gj.github.io/jsoncn/",
+      "github": "https://github.com/h-gj/jsoncn",
+      "icon": "assets/icons/site-json.svg",
+      "tags": ["学习复刻", "JSON"],
+      "kind": "rebuild",
+      "source": "https://www.json.cn/"
+    },
+    {
+      "id": "unixtimestamp",
+      "name": "Unix Timestamp",
+      "description": "unixtimestamp.com 的取证式复刻，时间戳与日期互转",
+      "url": "https://h-gj.github.io/unixtimestamp/",
+      "github": "https://github.com/h-gj/unixtimestamp",
+      "icon": "assets/icons/site-unix.svg",
+      "tags": ["学习复刻", "时间戳"],
+      "kind": "rebuild",
+      "source": "https://www.unixtimestamp.com/"
+    },
+    {
+      "id": "uuid",
+      "name": "UUID Generator",
+      "description": "uuidgenerator.net 的非官方复刻，在线生成 UUID",
+      "url": "https://h-gj.github.io/uuidgenerator/",
+      "github": "https://github.com/h-gj/uuidgenerator",
+      "icon": "assets/icons/site-uuid.svg",
+      "tags": ["学习复刻", "UUID"],
+      "kind": "rebuild",
+      "source": "https://www.uuidgenerator.net/"
+    },
+    {
+      "id": "md",
+      "name": "Markdown 编辑器",
+      "description": "www.domd.app/editor 的非官方静态快照，本地 Markdown 编辑",
+      "url": "https://md.hgjhub.com",
+      "github": "https://github.com/h-gj/md",
+      "icon": "assets/icons/site-md.svg",
+      "tags": ["学习复刻", "Markdown"],
+      "kind": "rebuild",
+      "source": "https://www.domd.app/editor"
+    },
+    {
+      "id": "dict2json",
+      "name": "Dict → JSON",
+      "description": "Python 字典转 JSON 在线工具（dict-to-json.vercel.app 学习复刻）",
+      "url": "https://dict2json.hgjhub.com",
+      "github": "https://github.com/h-gj/dict2json",
+      "icon": "assets/icons/site-dict.svg",
+      "tags": ["学习复刻", "Python"],
+      "kind": "rebuild",
+      "source": "https://dict-to-json.vercel.app/"
+    },
+    {
+      "id": "dict2json-c",
+      "name": "Dict → JSON (C)",
+      "description": "dict-to-json.vercel.app 的另一份 1:1 客户端复刻",
+      "url": "https://dict2json-c.hgjhub.com",
+      "github": "https://github.com/h-gj/dict2json-c",
+      "icon": "assets/icons/site-dict.svg",
+      "tags": ["学习复刻"],
+      "kind": "rebuild",
+      "source": "https://dict-to-json.vercel.app/"
+    },
+    {
+      "id": "onlineboard",
+      "name": "Online Board",
+      "description": "onlineboard.eu 的非官方 1:1 客户端复刻，用于学习，与原作者无关",
+      "url": "https://h-gj.github.io/onlineboard/",
+      "github": "https://github.com/h-gj/onlineboard",
+      "icon": "assets/icons/site-board.svg",
+      "tags": ["学习复刻", "白板"],
+      "kind": "rebuild",
+      "source": "https://onlineboard.eu/"
+    }
+  ]
+}

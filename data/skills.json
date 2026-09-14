@@ -1,0 +1,129 @@
+{
+  "skills": [
+    {
+      "id": "website-rebuild",
+      "name": "website-rebuild",
+      "version": "0.3.22",
+      "description": "获奖创意站 1:1 复刻管线：镜像取证、bundle 逆向、逐字节重拼与量化验收门",
+      "icon": "assets/icons/skill-rebuild.svg",
+      "tags": ["Cursor", "复刻", "WebGL"],
+      "download": "share/skills/website-rebuild/SKILL.md",
+      "installPath": "~/.cursor/skills/website-rebuild/",
+      "detail": {
+        "overview": "把创意网站以取证式方法复刻为可独立运行、可验证还原度的工程。不是“看着像”，而是以源站 bundle 为规格书、以量化门收口。完整脚本包较大，本站提供 SKILL.md 说明；完整 scripts/ 需从本机 skill 目录或仓库同步。",
+        "features": [
+          "Step 0 指纹侦察判级（A/B/C/D）",
+          "镜像优先，磁盘文件不改写",
+          "拼接式分解与逐字节重拼验收",
+          "路由扫描、像素对比、离线闭环"
+        ],
+        "usage": [
+          "将 SKILL.md 放到 ~/.cursor/skills/website-rebuild/SKILL.md",
+          "对 Agent 说「复刻这个网站」并给出 URL",
+          "按 skill 内阶段门推进，不过门不进入下一阶段"
+        ],
+        "requirements": [
+          "Node 22+、本机 Chrome/Chromium",
+          "公开可访问、允许学习临摹的站点",
+          "默认私有 + noindex；公开部署需你明确决定"
+        ]
+      }
+    },
+    {
+      "id": "site-rebuild-and-deploy",
+      "name": "site-rebuild-and-deploy",
+      "version": "1.0.0",
+      "description": "复刻完成后发布到 GitHub Pages，并绑定自定义域名的一条龙 skill",
+      "icon": "assets/icons/skill-deploy.svg",
+      "tags": ["Cursor", "GitHub Pages", "部署"],
+      "download": "share/skills/site-rebuild-and-deploy.zip",
+      "installPath": "~/.cursor/skills/site-rebuild-and-deploy/",
+      "detail": {
+        "overview": "在 website-rebuild 之上接发布段：生成 deploy 树、字节保真校验、建仓推送、开启 Pages、远端 blob 复核与 DNS 排查。",
+        "features": [
+          "不重写复刻管线，只固化发布步骤",
+          "Windows 下 gh / Git Bash 路径坑前置规避",
+          "自定义域名与 HTTPS 签发检查清单"
+        ],
+        "usage": [
+          "解压 zip 到 ~/.cursor/skills/site-rebuild-and-deploy/",
+          "先按 website-rebuild 完成 Phase A",
+          "再让 Agent 执行本 skill 的 Phase B/C"
+        ],
+        "requirements": ["已安装 website-rebuild", "GitHub CLI 已登录", "免费 Pages 需 public 仓库"]
+      }
+    },
+    {
+      "id": "site-rebuild-ship",
+      "name": "site-rebuild-ship",
+      "version": "1.0.0",
+      "description": "只给源站域名：复刻 → Pages → Cloudflare CNAME（如 json.hgjhub.com）",
+      "icon": "assets/icons/skill-ship.svg",
+      "tags": ["Cursor", "一条龙", "Cloudflare"],
+      "download": "share/skills/site-rebuild-ship.zip",
+      "installPath": "~/.cursor/skills/site-rebuild-ship/",
+      "detail": {
+        "overview": "编排层 skill。用户只给 json.cn 这类输入，按顺序调用 site-rebuild-and-deploy 与 cloudflare-manager，默认发布到 {slug}.hgjhub.com。",
+        "features": [
+          "从 URL 推导 slug / 仓库名 / 子域",
+          "DNS only CNAME，方便 GitHub 签证书",
+          "阶段门串行，红了就停"
+        ],
+        "usage": [
+          "解压到 ~/.cursor/skills/site-rebuild-ship/",
+          "对 Agent 说「一条龙 json.cn」或 /site-rebuild-ship",
+          "确认 L2 / 首页核心 / 公开 Pages 后开跑"
+        ],
+        "requirements": ["website-rebuild", "site-rebuild-and-deploy", "cloudflare-manager"]
+      }
+    },
+    {
+      "id": "cloudflare-manager",
+      "name": "cloudflare-manager",
+      "version": "1.0.0",
+      "description": "用 CLI 管理 Cloudflare DNS、Tunnel 与 Zero Trust，给站点绑 CNAME",
+      "icon": "assets/icons/skill-cf.svg",
+      "tags": ["Cloudflare", "DNS", "CLI"],
+      "download": "share/skills/cloudflare-manager.zip",
+      "installPath": "~/.cursor/skills/cloudflare-manager/",
+      "detail": {
+        "overview": "标准化 Cloudflare 操作：list/add/update DNS、更新 tunnel ingress。Token 放在本机 .env，不要提交。本站 zip 不含密钥和 .venv。",
+        "features": [
+          "list-dns / add-dns / update-dns",
+          "--dry-run 预览",
+          "与 site-rebuild-ship 的 Phase D 对接"
+        ],
+        "usage": [
+          "解压到 ~/.cursor/skills/cloudflare-manager/",
+          "python -m venv .venv && pip install -r requirements.txt",
+          "复制 .env.example 为 .env，填 CLOUDFLARE_API_TOKEN 与 ZONE_ID"
+        ],
+        "requirements": ["Python 3", "Cloudflare API Token（Zone 权限）"]
+      }
+    },
+    {
+      "id": "douyin-hot-email",
+      "name": "douyin-hot-email",
+      "version": "1.0.0",
+      "description": "抓取抖音热搜 Top 50 快照并发送到指定邮箱，带时间戳与来源",
+      "icon": "assets/icons/skill-mail.svg",
+      "tags": ["Codex", "邮件", "抖音"],
+      "download": "share/skills/douyin-hot-email.zip",
+      "installPath": "~/.codex/skills/douyin-hot-email/",
+      "detail": {
+        "overview": "按用户明确指定的收件人发送真实快照。不编造热度、不把过期榜单标成实时。凭据只走邮件服务商或本机密钥，不写入 skill。",
+        "features": [
+          "Top 50 排名原样保留",
+          "快照时间与来源 URL",
+          "优先 Email MCP，SMTP 需用户提供主机与授权方式"
+        ],
+        "usage": [
+          "解压到 ~/.codex/skills/douyin-hot-email/ 或 Cursor skills 目录",
+          "说明收件人并授权发件账户",
+          "对 Agent 说「把抖音热榜发到某某邮箱」"
+        ],
+        "requirements": ["可用的邮件发送通道（MCP 或 SMTP）", "用户明确给出收件人"]
+      }
+    }
+  ]
+}
