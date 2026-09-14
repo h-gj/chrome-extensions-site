@@ -84,6 +84,8 @@ GitHub 仓库 → **Settings** → **Pages** → Source 选 **Deploy from a bran
 3. 首次配置建议 **关闭代理**（灰色云 ☁️），等 GitHub HTTPS 证书签发后再决定是否开启
 4. 若国内解析慢，可将 NS 改到阿里云 / DNSPod，记录仍指向 `h-gj.github.io`
 
+橙云代理打开时，Cloudflare 会把 `js/*.js` 缓存数小时（常见 `max-age=14400`）。HTML 已更新、JS 仍是旧文件时，列表页会空白（旧脚本找 `extensions-grid`，新页面是 `catalog-grid`）。发布后在 CF **Caching → Purge** 清 `https://hgjhub.com/js/main.js` 与 `shared.js`，或硬刷新。静态资源已带 `?v=` 查询串，改版本即可跳过旧缓存。
+
 生效后访问：**https://hgjhub.com**
 
 ## 扩展打包（可选）
