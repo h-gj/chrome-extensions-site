@@ -59,7 +59,7 @@ function renderShortcuts(shortcuts) {
 }
 
 async function fetchJson(path) {
-  const res = await fetch(path);
+  const res = await fetch(path, { cache: 'no-store' });
   if (!res.ok) throw new Error(`HTTP ${res.status} ${path}`);
   return res.json();
 }

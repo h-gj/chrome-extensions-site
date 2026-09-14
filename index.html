@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="h-gj 的公开货架：Chrome 扩展、个人站点与可分享的 Agent Skills">
   <title>hgjhub</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=7">
   <link rel="icon" href="assets/icons/vault-pass.svg" type="image/svg+xml">
 </head>
 <body>
@@ -22,9 +22,9 @@
           <span id="site-title">hgjhub</span>
         </a>
         <nav class="header-nav">
-          <a href="extensions.html">扩展</a>
-          <a href="sites.html">站点</a>
-          <a href="skills.html">Skills</a>
+          <a href="./#extensions">扩展</a>
+          <a href="./#sites">站点</a>
+          <a href="./#skills">Skills</a>
           <a href="install.html">指南</a>
           <a id="github-link" href="https://github.com/h-gj" target="_blank" rel="noopener">GitHub</a>
         </nav>
@@ -37,32 +37,23 @@
       <div class="container">
         <p class="hero-badge" id="hero-badge">扩展 · 站点 · Skills</p>
         <h1 id="hero-title">hgjhub</h1>
-        <p class="hero-subtitle" id="hero-subtitle">Chrome 扩展、个人站点与可分享的 Agent Skills，集中在同一货架上</p>
+        <p class="hero-subtitle" id="hero-subtitle">Chrome 扩展、个人站点与可分享的 Agent Skills。</p>
       </div>
     </section>
 
-    <section class="hub-doors-section">
+    <section class="extensions-section" id="catalog">
       <div class="container">
-        <div class="hub-doors" id="hub-doors">
-          <a class="hub-door" href="extensions.html">
-            <p class="section-kicker">Chrome</p>
-            <h2>扩展</h2>
-            <p class="hub-door-count" id="extension-count">…</p>
-            <p class="hub-door-desc">开发者模式即可安装的浏览器扩展</p>
-          </a>
-          <a class="hub-door" href="sites.html">
-            <p class="section-kicker">hgjhub.com</p>
-            <h2>站点</h2>
-            <p class="hub-door-count" id="site-count">…</p>
-            <p class="hub-door-desc">线上工具与学习复刻，打开即可用</p>
-          </a>
-          <a class="hub-door" href="skills.html">
-            <p class="section-kicker">Cursor / Codex</p>
-            <h2>Skills</h2>
-            <p class="hub-door-count" id="skill-count">…</p>
-            <p class="hub-door-desc">下载后放到 skills 目录即可调用</p>
-          </a>
+        <div class="section-head">
+          <div class="catalog-tabs" role="tablist" aria-label="目录">
+            <button type="button" class="catalog-tab" role="tab" id="tab-extensions" data-tab="extensions" aria-controls="home-catalog-grid" aria-selected="true">扩展</button>
+            <button type="button" class="catalog-tab" role="tab" id="tab-sites" data-tab="sites" aria-controls="home-catalog-grid" aria-selected="false">站点</button>
+            <button type="button" class="catalog-tab" role="tab" id="tab-skills" data-tab="skills" aria-controls="home-catalog-grid" aria-selected="false">Skills</button>
+          </div>
+          <p id="catalog-count">加载中…</p>
         </div>
+        <p class="section-note" id="note-sites" hidden>标有「学习复刻」的站点是非官方学习件，与原站作者无关。</p>
+        <p class="section-note" id="note-skills" hidden>下载 zip 后解压到 <code>~/.cursor/skills/&lt;name&gt;/</code>。详见<a href="install.html#skills">安装指南</a>。</p>
+        <div class="extensions-grid" id="home-catalog-grid" role="tabpanel" aria-labelledby="tab-extensions" aria-live="polite"></div>
       </div>
     </section>
   </main>
@@ -73,7 +64,7 @@
     </div>
   </footer>
 
-  <script src="js/shared.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/shared.js?v=4"></script>
+  <script src="js/main.js?v=4"></script>
 </body>
 </html>

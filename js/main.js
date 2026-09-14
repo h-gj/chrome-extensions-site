@@ -1,5 +1,8 @@
+let hubData = null;
+
 async function loadPage() {
   const catalog = document.getElementById('catalog-grid');
+  const homeGrid = document.getElementById('home-catalog-grid');
   try {
     const data = await fetchHubData();
     applySiteMeta(data.site);
@@ -10,19 +13,60 @@ async function loadPage() {
     }
 
     document.title = data.site.title;
-    setCount('extension-count', data.extensions.length, '个扩展');
-    setCount('site-count', data.sites.length, '个站点');
-    setCount('skill-count', data.skills.length, '个 Skills');
+    hubData = data;
+    bindHomeTabs();
+    showHomeTab(tabFromHash());
   } catch (err) {
     console.error('Failed to load hub:', err);
     const msg = '<p class="error-message">列表加载失败，请确认 data/*.json 可通过 HTTP 访问。</p>';
     if (catalog) catalog.innerHTML = msg;
+    if (homeGrid) homeGrid.innerHTML = msg;
   }
 }
 
-function setCount(id, n, label) {
-  const el = document.getElementById(id);
-  if (el) el.textContent = `${n} ${label}`;
+function tabFromHash() {
+  const hash = (location.hash || '').replace('#', '');
+  if (hash === 'sites' || hash === 'skills' || hash === 'extensions') return hash;
+  return 'extensions';
+}
+
+function bindHomeTabs() {
+  document.querySelectorAll('.catalog-tab').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const tab = btn.dataset.tab;
+      if (`#${tab}` !== location.hash) {
+        history.replaceState(null, '', `#${tab}`);
+      }
+      showHomeTab(tab);
+    });
+  });
+  window.addEventListener('hashchange', () => showHomeTab(tabFromHash()));
+}
+
+function showHomeTab(tab) {
+  if (!hubData) return;
+  const grid = document.getElementById('home-catalog-grid');
+  const countEl = document.getElementById('catalog-count');
+  if (!grid) return;
+
+  document.querySelectorAll('.catalog-tab').forEach((btn) => {
+    const on = btn.dataset.tab === tab;
+    btn.setAttribute('aria-selected', on ? 'true' : 'false');
+  });
+  grid.setAttribute('aria-labelledby', `tab-${tab}`);
+
+  const noteSites = document.getElementById('note-sites');
+  const noteSkills = document.getElementById('note-skills');
+  if (noteSites) noteSites.hidden = tab !== 'sites';
+  if (noteSkills) noteSkills.hidden = tab !== 'skills';
+
+  if (tab === 'sites') {
+    renderSites(hubData.sites, grid, countEl);
+  } else if (tab === 'skills') {
+    renderSkills(hubData.skills, grid, countEl);
+  } else {
+    renderExtensions(hubData.extensions, grid, countEl);
+  }
 }
 
 function loadCatalog(data, grid) {
