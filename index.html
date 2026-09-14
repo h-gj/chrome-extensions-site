@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="h-gj 个人开发的 Chrome 浏览器扩展，免费开源下载">
-  <title>Chrome 扩展集 · h-gj</title>
+  <meta name="description" content="h-gj 的公开货架：Chrome 扩展、个人站点与可分享的 Agent Skills">
+  <title>hgjhub</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="assets/icons/vault-pass.svg" type="image/svg+xml">
 </head>
@@ -19,10 +19,13 @@
               <circle cx="12" cy="12" r="4"/>
             </svg>
           </span>
-          <span id="site-title">Chrome 扩展集</span>
+          <span id="site-title">hgjhub</span>
         </a>
         <nav class="header-nav">
-          <a href="install.html">安装指南</a>
+          <a href="extensions.html">扩展</a>
+          <a href="sites.html">站点</a>
+          <a href="skills.html">Skills</a>
+          <a href="install.html">指南</a>
           <a id="github-link" href="https://github.com/h-gj" target="_blank" rel="noopener">GitHub</a>
         </nav>
       </div>
@@ -32,37 +35,33 @@
   <main>
     <section class="hero">
       <div class="container">
-        <p class="hero-badge">开源 · 免费 · 纯静态</p>
-        <h1 id="hero-title">Chrome 扩展集</h1>
-        <p class="hero-subtitle" id="hero-subtitle">个人开发的浏览器扩展，免费开源，开发者模式即可安装</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#extensions">浏览扩展</a>
-          <a class="btn btn-secondary" href="install.html">如何安装？</a>
-        </div>
+        <p class="hero-badge" id="hero-badge">扩展 · 站点 · Skills</p>
+        <h1 id="hero-title">hgjhub</h1>
+        <p class="hero-subtitle" id="hero-subtitle">Chrome 扩展、个人站点与可分享的 Agent Skills，集中在同一货架上</p>
       </div>
     </section>
 
-    <section class="extensions-section" id="extensions">
+    <section class="hub-doors-section">
       <div class="container">
-        <div class="section-head">
-          <h2>全部扩展</h2>
-          <p id="extension-count">加载中…</p>
-        </div>
-        <div class="extensions-grid" id="extensions-grid" aria-live="polite"></div>
-      </div>
-    </section>
-
-    <section class="install-preview">
-      <div class="container">
-        <div class="install-card">
-          <h2>快速安装</h2>
-          <ol class="install-steps">
-            <li>下载扩展 zip 并解压到本地文件夹</li>
-            <li>打开 <code>chrome://extensions/</code></li>
-            <li>开启右上角「开发者模式」</li>
-            <li>点击「加载已解压的扩展程序」，选择解压后的目录</li>
-          </ol>
-          <a class="btn btn-secondary" href="install.html">查看详细图文指南 →</a>
+        <div class="hub-doors" id="hub-doors">
+          <a class="hub-door" href="extensions.html">
+            <p class="section-kicker">Chrome</p>
+            <h2>扩展</h2>
+            <p class="hub-door-count" id="extension-count">…</p>
+            <p class="hub-door-desc">开发者模式即可安装的浏览器扩展</p>
+          </a>
+          <a class="hub-door" href="sites.html">
+            <p class="section-kicker">hgjhub.com</p>
+            <h2>站点</h2>
+            <p class="hub-door-count" id="site-count">…</p>
+            <p class="hub-door-desc">线上工具与学习复刻，打开即可用</p>
+          </a>
+          <a class="hub-door" href="skills.html">
+            <p class="section-kicker">Cursor / Codex</p>
+            <h2>Skills</h2>
+            <p class="hub-door-count" id="skill-count">…</p>
+            <p class="hub-door-desc">下载后放到 skills 目录即可调用</p>
+          </a>
         </div>
       </div>
     </section>

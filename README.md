@@ -1,6 +1,6 @@
-# Chrome 扩展集 · 个人静态站点
+# hgjhub · 扩展 · 站点 · Skills
 
-展示并分发个人开发的 Chrome 浏览器扩展。纯 HTML / CSS / JavaScript，无构建步骤，适合 GitHub Pages 或任意静态托管。
+个人公开货架：Chrome 扩展、托管在 `*.hgjhub.com` 的站点，以及可下载的 Cursor / Codex Agent Skills。纯 HTML / CSS / JavaScript，无构建步骤。
 
 ## 本地预览
 
@@ -11,7 +11,16 @@ python -m http.server 8080
 
 浏览器打开 http://127.0.0.1:8080/
 
-> 需通过 HTTP 服务访问（不能直接双击 `index.html`），因为页面通过 `fetch` 加载 `data/extensions.json`。
+> 需通过 HTTP 服务访问（不能直接双击 `index.html`），因为页面通过 `fetch` 加载 `data/*.json`。
+
+## 维护目录
+
+| 文件 | 内容 |
+|------|------|
+| `data/extensions.json` | Chrome 扩展 + 站点标题/副标题 |
+| `data/sites.json` | 个人站点与学习复刻站 |
+| `data/skills.json` | 可分享的 Agent Skills |
+| `share/skills/` | Skill 源文件与 zip |
 
 ## 维护扩展列表
 
@@ -91,13 +100,20 @@ GitHub 仓库 → **Settings** → **Pages** → Source 选 **Deploy from a bran
 
 ```
 chrome-extensions-site/
-├── index.html              # 首页
-├── install.html            # 安装指南
-├── data/extensions.json    # 扩展数据（主要维护入口）
+├── index.html              # 首页入口
+├── extensions.html         # 扩展列表
+├── sites.html              # 站点列表
+├── skills.html             # Skills 列表
+├── install.html            # 扩展与 Skill 安装指南
+├── skill.html              # Skill 详情
+├── detail.html             # 扩展详情
+├── data/extensions.json
+├── data/sites.json
+├── data/skills.json
+├── share/skills/           # 可下载的 skill 包
 ├── css/style.css
-├── js/main.js
-├── assets/icons/           # 扩展图标
-└── scripts/                # 打包脚本
+├── js/
+└── assets/icons/
 ```
 
 ## License

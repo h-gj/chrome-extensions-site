@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <title>扩展详情 · hgjhub</title>
+  <meta name="description" content="h-gj 个人开发的 Chrome 浏览器扩展，免费开源下载">
+  <title>扩展 · hgjhub</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="assets/icons/vault-pass.svg" type="image/svg+xml">
 </head>
@@ -22,7 +22,7 @@
           <span id="site-title">hgjhub</span>
         </a>
         <nav class="header-nav">
-          <a href="extensions.html">扩展</a>
+          <a href="extensions.html" aria-current="page">扩展</a>
           <a href="sites.html">站点</a>
           <a href="skills.html">Skills</a>
           <a href="install.html">指南</a>
@@ -32,13 +32,19 @@
     </div>
   </header>
 
-  <main class="page-main" id="detail-main" aria-live="polite">
-    <div class="container container-narrow">
-      <p class="back-link back-link-top"><a href="extensions.html">← 返回扩展列表</a></p>
-      <div id="detail-content">
-        <p class="loading-text">加载中…</p>
+  <main>
+    <section class="extensions-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Chrome</p>
+            <h2>扩展</h2>
+          </div>
+          <p id="catalog-count">加载中…</p>
+        </div>
+        <div class="extensions-grid" id="catalog-grid" data-catalog="extensions" aria-live="polite"></div>
       </div>
-    </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -48,6 +54,6 @@
   </footer>
 
   <script src="js/shared.js"></script>
-  <script src="js/detail.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
